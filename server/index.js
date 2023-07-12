@@ -7,14 +7,12 @@ require("dotenv").config();
 
 app.use(express.json());
 app.use(cors());
+app.use('/', require('./routes'));
 
 
 const port  = process.env.PORT || 5000;
 const uri = process.env.ATLAS_URI;
 
-app.get('/', (req, res) =>{
-    return res.send("Welcome on my chat api..");
-});
 
 app.listen(port, (req, res)=>{
     console.log(`server running on port... ${port}`);
